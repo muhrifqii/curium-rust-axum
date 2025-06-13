@@ -1,0 +1,24 @@
+/.idea
+.Trash-*
+.DS_Store
+Thumbs.db
+._*
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+/target
+.env
+.env.local
+.env.*.local
+/coverage
+*.db
+*.db-*
+/logs
+*.log
+# Config
+configs/*.yaml
+configs/*.yml
+!configs/dev.yaml

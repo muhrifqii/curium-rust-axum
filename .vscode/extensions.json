@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "fill-labs.dependi",
+        "vadimcn.vscode-lldb",
+        "formulahendry.code-runner",
+        "ryanluker.vscode-coverage-gutters",
+        "mikestead.dotenv",
+        "editorconfig.editorconfig",
+        "tamasfe.even-better-toml",
+        "rust-lang.rust-analyzer"
+    ]
+}
