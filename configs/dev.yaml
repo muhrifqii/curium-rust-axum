@@ -1,0 +1,32 @@
+# see Config at: src/infrastructures/config.rs
+
+db:
+  pg:
+    host: localhost
+    port: 5432
+    user: postgres
+    password: postgres
+    name: cmrust
+  sqlite: cmrust.db
+server:
+  prefix: /
+  host: 0.0.0.0
+  port: 3030
+logger:
+  stdout: true
+  level: debug
+  format: pretty
+  file:
+    enable: true
+    level: debug
+    non_blocking: false
+    format: json
+    rotation: hourly
+    max_log_files: 1000
+    dir: logs
+jwt:
+  secret: somesecret
+  expiration: 2
+notification:
+  telegram:
+    access_token: "112233"
