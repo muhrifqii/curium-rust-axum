@@ -26,7 +26,7 @@ impl Service {
     }
 
     pub async fn create(&self, user: User) -> AppResult<User> {
-        self.repo.create(user).await
+        self.repo.insert(user).await
     }
 
     pub async fn list(&self) -> AppResult<Vec<User>> {

@@ -7,7 +7,7 @@ use sqlx::{Database, Pool};
 pub trait Repository: Send + Sync + 'static {
     async fn find_by_id(&self, id: &u64) -> AppResult<Option<User>>;
     async fn list(&self) -> AppResult<Vec<User>>;
-    async fn create(&self, user: User) -> AppResult<User>;
+    async fn insert(&self, user: User) -> AppResult<User>;
     async fn update(&self, id: u64, user: User) -> AppResult<Option<User>>;
     async fn delete(&self, id: &u64) -> AppResult<bool>;
 }
@@ -30,7 +30,7 @@ pub mod sqlite {
             todo!()
         }
 
-        async fn create(&self, user: User) -> AppResult<User> {
+        async fn insert(&self, user: User) -> AppResult<User> {
             todo!()
         }
 
@@ -62,7 +62,7 @@ pub mod pg {
             todo!()
         }
 
-        async fn create(&self, user: User) -> AppResult<User> {
+        async fn insert(&self, user: User) -> AppResult<User> {
             todo!()
         }
 

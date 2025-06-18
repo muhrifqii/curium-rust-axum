@@ -20,7 +20,7 @@
 
 ---
 
-A modern, extensible REST API built with Rust and Axum, following Hexagonal Architecture principles.
+A modern, extensible REST API built with Rust and Axum, following Hexagonal Architecture principles with slightly modification on the driven adapters.
 
 ## Architecture
 
@@ -35,18 +35,26 @@ This project follows Hexagonal Architecture (also known as Ports and Adapters) t
 
 ```
 main/src/
-├── domain/           # Core business logic and entities
-├── infrastructure/   # External adapters (DB, HTTP, etc.)
-├── router/          # HTTP routing and handlers
-└── types/           # Common types and error handling
+├── {component_name}/   # Core application component (user, catalog, etc)
+│   ├── api.rs          # Driver port and use case adapters (Can be a module)
+│   ├── domain.rs       # Domain logic and models (Can be a module)
+│   ├── mod.rs          # Rust module, driving encapsulation rules
+│   └── repository.rs   # Port and driven adapters (Can be a module)
+├── infrastructure/     # Shared adapters (kernel) (DB, Config, etc.)
+├── router/             # HTTP feature routing controller/handlers
+├── context.rs          # Application context that holds all required dependencies
+├── lib.rs              # Declaration of project modules
+├── main.rs             # Application entry point
+└── types.rs            # Shared types and errors
 ```
 
 ### Key Components
 
+- **Application Component Module**: Core application component that encapsulate the driven port and adapters. 
+- **Api**: Application interface (driver port) that interacts with the outside world, orchestrating the business logic of a component
 - **Domain Layer**: Contains business logic and entities
-- **Ports**: Interfaces that define how the application interacts with the outside world
-- **Adapters**: Implementations of ports (e.g., SQLite/PostgreSQL repositories)
-- **Application Services**: Orchestrate the flow of data and business logic
+- **Repository**: Driven port and adapter of a component
+- **
 
 ## Features
 
@@ -72,16 +80,11 @@ main/src/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/curium-rust-axum.git
+   git clone https://github.com/muhrifqii/curium-rust-axum.git
    cd curium-rust-axum
    ```
 
-2. Build the project:
-   ```bash
-   cargo build
-   ```
-
-3. Run the application:
+2. Run the application:
    ```bash
    cargo run
    ```

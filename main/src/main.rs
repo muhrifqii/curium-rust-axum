@@ -1,10 +1,4 @@
-use crate::context::AppCtx;
-
-mod context;
-mod infrastructure;
-mod router;
-mod types;
-mod user;
+use main::{context::AppCtx, router};
 
 #[tokio::main]
 async fn main() {
